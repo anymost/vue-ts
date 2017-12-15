@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld></HelloWorld>
+    <HelloWorld @handleClick="handleClick"></HelloWorld>
     <router-view/>
   </div>
 </template>
@@ -21,7 +20,7 @@
 
 
 <script lang="ts">
-  import {Vue,Component} from 'vue-property-decorator'
+  import {Vue,Component, Emit} from 'vue-property-decorator'
   import HelloWorld from './components/HelloWorld.vue'
 
   @Component({
@@ -30,7 +29,9 @@
     }
   })
   export default class App extends Vue{
-
+      handleClick() {
+        console.log('trigger by child')
+      }
   }
 
 </script>
