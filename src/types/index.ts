@@ -1,5 +1,5 @@
 export interface USERINFO {
-  misId: string;
+  onlyId: string;
   userId: string;
   userName: string;
 }

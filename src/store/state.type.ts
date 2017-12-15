@@ -1,9 +1,9 @@
-export interface USERINFO{
-  misId: string;
+export interface USERINFO {
+  onlyId: string;
   userId: number;
   userName: string;
 }
 
-export default interface STATE{
-  userInfo: USERINFO
+export default interface STATE {
+  userInfo: USERINFO;
 }
