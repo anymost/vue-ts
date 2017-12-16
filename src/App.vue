@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <HelloWorld @handleClick="handleClick"></HelloWorld>
+    <input type="text" v-model="childProp">
+    <HelloWorld @handleClick="handleClick" :childProp="childProp"></HelloWorld>
     <router-view/>
   </div>
 </template>
@@ -20,7 +21,7 @@
 
 
 <script lang="ts">
-  import {Vue,Component, Emit} from 'vue-property-decorator'
+  import {Vue,Component, Provide} from 'vue-property-decorator'
   import HelloWorld from './components/HelloWorld.vue'
 
   @Component({
@@ -29,8 +30,15 @@
     }
   })
   export default class App extends Vue{
-      handleClick() {
-        console.log('trigger by child')
+
+      childProp: string|number = '';
+
+      @Provide('foo')
+      bar:string = 'hello';
+
+
+      handleClick(value: Array<string|number>) {
+        console.log(value)
       }
   }
 
